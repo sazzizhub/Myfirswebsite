@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Il Mio Sito Personale</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: url('https://cdn.pixabay.com/photo/2017/12/10/14/47/technology-3016655_1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0; padding: 0;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  }
+  /* Stile base per header, nav, footer */
+  header, nav, footer {
+    position: relative;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+  }
+  /* Canvas per effetto matrix */
+  header canvas,
+  nav canvas,
+  footer canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  /* Contenuto sopra canvas */
+  header > *, nav > *, footer > * {
+    position: relative;
+    z-index: 1;
+  }
+  nav {
+    padding: 15px;
+  }
+  nav a {
+    color: #00ff00;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  section {
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    color: #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  footer {
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <canvas id="headerMatrix"></canvas>
+    <h1>Tecnologia e Passione — Luigi Donzella</h1>
+  </header>
+  <nav>
+    <canvas id="navMatrix"></canvas>
+    <a href="#home">Home</a>
+    <a href="#about">Chi sono</a>
+    <a href="#contact">Contatti</a>
+  </nav>
+  <section id="home">
+    <h2>Home</h2>
+    <p>Questo è un sito di Luigi Donzella.</p>
+  </section>
+  <section id="about">
+    <h2>Chi sono</h2>
+    <p>Sono un appassionato di tecnologia e sto imparando a creare siti web.</p>
+  </section>
+  <section id="contact">
+    <h2>Contatti</h2>
+    <p>Puoi scrivermi a: donzellaenzo10@gmail.com</p>
+  </section>
+  <footer>
+    <canvas id="footerMatrix"></canvas>
+    <p>© 2025 Il Mio Sito Personale</p>
+  </footer>
+
+<script>
+  function matrixEffect(canvasId) {
+    const canvas = document.getElementById(canvasId);
+    const ctx = canvas.getContext('2d');
+
+    // Resize canvas to fill container
+    function resize() {
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%'.split('');
+    const fontSize = 16;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#00ff00';
+      ctx.font = fontSize + 'px Courier New';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 50);
+  }
+
+  matrixEffect('headerMatrix');
+  matrixEffect('navMatrix');
+  matrixEffect('footerMatrix');
+</script>
+</body>
+</html>
