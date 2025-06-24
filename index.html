@@ -3,45 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Il Mio Sito Personale</title>
+<title>Sito con Social Colorati</title>
+
 <style>
   body {
     font-family: Arial, sans-serif;
-    background: url('https://cdn.pixabay.com/photo/2017/12/10/14/47/technology-3016655_1280.jpg') no-repeat center center fixed;
-    background-size: cover;
     margin: 0; padding: 0;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0,0,0,0.7);
-  }
-  /* Stile base per header, nav, footer */
-  header, nav, footer {
-    position: relative;
-    color: #00ff00;
-    font-family: 'Courier New', Courier, monospace;
-    padding: 20px;
-    text-align: center;
-    overflow: hidden;
-  }
-  /* Canvas per effetto matrix */
-  header canvas,
-  nav canvas,
-  footer canvas {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-  }
-  /* Contenuto sopra canvas */
-  header > *, nav > *, footer > * {
-    position: relative;
-    z-index: 1;
+    background-color: #f4f4f4;
   }
   nav {
-    padding: 15px;
+    background: rgba(0,0,0,0.7);
+    padding: 10px;
+    text-align: center;
   }
   nav a {
-    color: #00ff00;
+    color: white;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
@@ -49,90 +25,125 @@
   nav a:hover {
     text-decoration: underline;
   }
-  section {
-    max-width: 800px;
-    margin: 20px auto;
-    background: rgba(255, 255, 255, 0.9);
+  .hero {
+    background-image: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  }
+  main {
     padding: 20px;
-    border-radius: 8px;
-    color: #333;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  h2 {
+    color: #007acc;
+  }
+  #social {
+    background-color: #f0f0f0;
+    padding: 30px;
+    text-align: center;
+  }
+  #social a {
+    margin: 0 20px;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  #social a:hover {
+    color: #555;
+  }
+  /* Icone SVG colorate, piccole e allineate */
+  #social a svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
   }
   footer {
-    font-size: 0.9rem;
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 10px;
   }
 </style>
 </head>
 <body>
-  <header>
-    <canvas id="headerMatrix"></canvas>
-    <h1>Tecnologia e Passione — Luigi Donzella</h1>
-  </header>
-  <nav>
-    <canvas id="navMatrix"></canvas>
-    <a href="#home">Home</a>
-    <a href="#about">Chi sono</a>
-    <a href="#contact">Contatti</a>
-  </nav>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#chi-sono">Chi sono</a>
+  <a href="#contatti">Contatti</a>
+</nav>
+
+<div class="hero">
+  <h1>Tecnologia e Passione — Luigi Donzella</h1>
+</div>
+
+<main>
   <section id="home">
     <h2>Home</h2>
     <p>Questo è un sito di Luigi Donzella.</p>
   </section>
-  <section id="about">
+
+  <section id="chi-sono">
     <h2>Chi sono</h2>
     <p>Sono un appassionato di tecnologia e sto imparando a creare siti web.</p>
   </section>
-  <section id="contact">
+
+  <section id="contatti">
     <h2>Contatti</h2>
-    <p>Puoi scrivermi a: donzellaenzo10@gmail.com</p>
+    <p>Puoi scrivermi a: <a href="mailto:donzellaenzo10@gmail.com">donzellaenzo10@gmail.com</a></p>
   </section>
-  <footer>
-    <canvas id="footerMatrix"></canvas>
-    <p>© 2025 Il Mio Sito Personale</p>
-  </footer>
+</main>
 
-<script>
-  function matrixEffect(canvasId) {
-    const canvas = document.getElementById(canvasId);
-    const ctx = canvas.getContext('2d');
+<section id="social">
+  <h2>Seguimi sui social</h2>
+  <a href="https://www.tiktok.com/@sazziz_tech" target="_blank" rel="noopener">
+    <!-- TikTok colorata -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" >
+      <path fill="#69C9D0" d="M9.958 3c.117 3.125 1.688 5.385 4.354 6.327v3.717a6.095 6.095 0 01-4.92-2.53A6.404 6.404 0 005.893 9.84v3.146a6.13 6.13 0 003.982 5.894 6.31 6.31 0 006.238-1.607v-3.764a6.093 6.093 0 01-3.75 1.101v-8.39h3.358V3z"/>
+      <path fill="#EE1D52" d="M14.48 3.66v3.28c-.58-.06-1.15-.18-1.69-.36v3.69a6.096 6.096 0 004.11 1.32v-4.75h-2.42z"/>
+    </svg>
+    TikTok
+  </a>
 
-    // Resize canvas to fill container
-    function resize() {
-      canvas.width = canvas.clientWidth;
-      canvas.height = canvas.clientHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
+  <a href="https://instagram.com/sazziztech" target="_blank" rel="noopener">
+    <!-- Instagram colorata -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+      <linearGradient id="instagramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f09433"/>
+        <stop offset="25%" stop-color="#e6683c"/>
+        <stop offset="50%" stop-color="#dc2743"/>
+        <stop offset="75%" stop-color="#cc2366"/>
+        <stop offset="100%" stop-color="#bc1888"/>
+      </linearGradient>
+      <path fill="url(#instagramGradient)" d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 1.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 1.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7z"/>
+    </svg>
+    Instagram
+  </a>
 
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%'.split('');
-    const fontSize = 16;
-    const columns = Math.floor(canvas.width / fontSize);
-    const drops = Array(columns).fill(1);
+  <a href="https://www.youtube.com/c/techtoke2" target="_blank" rel="noopener">
+    <!-- YouTube colorata -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+      <path fill="#FF0000" d="M21.8 7.2a2.7 2.7 0 00-1.9-1.9C18.4 5 12 5 12 5s-6.4 0-7.9.3a2.7 2.7 0 00-1.9 1.9A28.6 28.6 0 002 12a28.6 28.6 0 00.2 4.8 2.7 2.7 0 001.9 1.9C5.6 19 12 19 12 19s6.4 0 7.9-.3a2.7 2.7 0 001.9-1.9 28.6 28.6 0 00.2-4.8 28.6 28.6 0 00-.2-4.8z"/>
+      <path fill="#fff" d="M10 15l5.19-3L10 9v6z"/>
+    </svg>
+    YouTube
+  </a>
+</section>
 
-    function draw() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+<footer>
+  <p>© 2025 Il Mio Sito Personale</p>
+</footer>
 
-      ctx.fillStyle = '#00ff00';
-      ctx.font = fontSize + 'px Courier New';
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-
-    setInterval(draw, 50);
-  }
-
-  matrixEffect('headerMatrix');
-  matrixEffect('navMatrix');
-  matrixEffect('footerMatrix');
-</script>
 </body>
 </html>
